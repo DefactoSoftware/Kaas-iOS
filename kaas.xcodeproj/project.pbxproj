@@ -7,10 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07952B3D181C546B0056DCFB /* KAAQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07952B3C181C546B0056DCFB /* KAAQuestionViewController.m */; };
+		07952B41181C66330056DCFB /* KAAQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 07952B40181C66330056DCFB /* KAAQuestion.m */; };
+		07952B47181C6B600056DCFB /* KAACategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 07952B46181C6B600056DCFB /* KAACategory.m */; };
+		079931A2181C3E550096D54B /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 079931A1181C3E550096D54B /* Storyboard.storyboard */; };
 		07BF81FA181C22BC003F8C2B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07BF81F9181C22BC003F8C2B /* Foundation.framework */; };
 		07BF81FC181C22BC003F8C2B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07BF81FB181C22BC003F8C2B /* CoreGraphics.framework */; };
 		07BF81FE181C22BC003F8C2B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07BF81FD181C22BC003F8C2B /* UIKit.framework */; };
-		07BF8207181C22BC003F8C2B /* KAAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BF8206181C22BC003F8C2B /* KAAPIClient.m */; };
+		07BF8207181C22BC003F8C2B /* KAAAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BF8206181C22BC003F8C2B /* KAAAPIClient.m */; };
 		07BF820B181C22BC003F8C2B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 07BF8209181C22BC003F8C2B /* InfoPlist.strings */; };
 		07BF820D181C22BC003F8C2B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BF820C181C22BC003F8C2B /* main.m */; };
 		07BF8210181C22BC003F8C2B /* KAAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BF820F181C22BC003F8C2B /* KAAAppDelegate.m */; };
@@ -32,13 +36,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		07952B3B181C546B0056DCFB /* KAAQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KAAQuestionViewController.h; path = Controllers/KAAQuestionViewController.h; sourceTree = "<group>"; };
+		07952B3C181C546B0056DCFB /* KAAQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KAAQuestionViewController.m; path = Controllers/KAAQuestionViewController.m; sourceTree = "<group>"; };
+		07952B3F181C66330056DCFB /* KAAQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KAAQuestion.h; path = Models/KAAQuestion.h; sourceTree = "<group>"; };
+		07952B40181C66330056DCFB /* KAAQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KAAQuestion.m; path = Models/KAAQuestion.m; sourceTree = "<group>"; };
+		07952B45181C6B600056DCFB /* KAACategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KAACategory.h; path = Models/KAACategory.h; sourceTree = "<group>"; };
+		07952B46181C6B600056DCFB /* KAACategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KAACategory.m; path = Models/KAACategory.m; sourceTree = "<group>"; };
+		079931A1181C3E550096D54B /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Storyboard.storyboard; path = Views/Storyboard.storyboard; sourceTree = "<group>"; };
 		07BF81F6181C22BC003F8C2B /* kaas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kaas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07BF81F9181C22BC003F8C2B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		07BF81FB181C22BC003F8C2B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		07BF81FD181C22BC003F8C2B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		07BF8203181C22BC003F8C2B /* kaas-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "kaas-Prefix.pch"; sourceTree = "<group>"; };
-		07BF8205181C22BC003F8C2B /* KAAPIClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = KAAPIClient.h; path = Networking/KAAPIClient.h; sourceTree = "<group>"; };
-		07BF8206181C22BC003F8C2B /* KAAPIClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = KAAPIClient.m; path = Networking/KAAPIClient.m; sourceTree = "<group>"; };
+		07BF8205181C22BC003F8C2B /* KAAAPIClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = KAAAPIClient.h; path = Networking/KAAAPIClient.h; sourceTree = "<group>"; };
+		07BF8206181C22BC003F8C2B /* KAAAPIClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = KAAAPIClient.m; path = Networking/KAAAPIClient.m; sourceTree = "<group>"; };
 		07BF8208181C22BC003F8C2B /* kaas-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "kaas-Info.plist"; sourceTree = "<group>"; };
 		07BF820A181C22BC003F8C2B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		07BF820C181C22BC003F8C2B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -76,6 +87,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		07952B3A181C54480056DCFB /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				07952B3B181C546B0056DCFB /* KAAQuestionViewController.h */,
+				07952B3C181C546B0056DCFB /* KAAQuestionViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		07952B3E181C66070056DCFB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				07952B3F181C66330056DCFB /* KAAQuestion.h */,
+				07952B40181C66330056DCFB /* KAAQuestion.m */,
+				07952B45181C6B600056DCFB /* KAACategory.h */,
+				07952B46181C6B600056DCFB /* KAACategory.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		079931A0181C3E370096D54B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				079931A1181C3E550096D54B /* Storyboard.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		07BF81ED181C22BC003F8C2B = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +153,9 @@
 				07BF820F181C22BC003F8C2B /* KAAAppDelegate.m */,
 				07BF8211181C22BC003F8C2B /* Images.xcassets */,
 				07BF8204181C22BC003F8C2B /* Networking */,
+				07952B3E181C66070056DCFB /* Models */,
+				079931A0181C3E370096D54B /* Views */,
+				07952B3A181C54480056DCFB /* Controllers */,
 				07BF8202181C22BC003F8C2B /* Supporting Files */,
 			);
 			path = kaas;
@@ -133,8 +175,8 @@
 		07BF8204181C22BC003F8C2B /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				07BF8205181C22BC003F8C2B /* KAAPIClient.h */,
-				07BF8206181C22BC003F8C2B /* KAAPIClient.m */,
+				07BF8205181C22BC003F8C2B /* KAAAPIClient.h */,
+				07BF8206181C22BC003F8C2B /* KAAAPIClient.m */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -222,6 +264,7 @@
 			files = (
 				07BF8212181C22BC003F8C2B /* Images.xcassets in Resources */,
 				07BF820B181C22BC003F8C2B /* InfoPlist.strings in Resources */,
+				079931A2181C3E550096D54B /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,7 +317,10 @@
 			files = (
 				07BF8210181C22BC003F8C2B /* KAAAppDelegate.m in Sources */,
 				07BF820D181C22BC003F8C2B /* main.m in Sources */,
-				07BF8207181C22BC003F8C2B /* KAAPIClient.m in Sources */,
+				07952B41181C66330056DCFB /* KAAQuestion.m in Sources */,
+				07952B3D181C546B0056DCFB /* KAAQuestionViewController.m in Sources */,
+				07BF8207181C22BC003F8C2B /* KAAAPIClient.m in Sources */,
+				07952B47181C6B600056DCFB /* KAACategory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

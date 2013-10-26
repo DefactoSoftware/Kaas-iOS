@@ -19,11 +19,20 @@ PODS:
   - AFNetworking/Serialization (2.0.1)
   - AFNetworking/UIKit (2.0.1):
     - AFNetworking/NSURLConnection
+  - CSNotificationView (0.3)
+  - MLPAutoCompleteTextField (1.5)
+  - TPKeyboardAvoiding (1.2.1)
 
 DEPENDENCIES:
   - AFNetworking
+  - CSNotificationView
+  - MLPAutoCompleteTextField (~> 1.5)
+  - TPKeyboardAvoiding
 
 SPEC CHECKSUMS:
   AFNetworking: a6f11ac4ac087303e6ff87adc1ba57b0dac20ef8
+  CSNotificationView: 5b5040243ccf631f2039a670ee1dbd2160890f90
+  MLPAutoCompleteTextField: 8baf7b9a78cbc6022a50f985c1c56784248821fe
+  TPKeyboardAvoiding: 0536c563e6c8b8e95a7c4bf87fca9c0991f5e826
 
 COCOAPODS: 0.27.1
