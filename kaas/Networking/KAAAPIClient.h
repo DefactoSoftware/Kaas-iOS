@@ -1,9 +1,12 @@
 #import <AFNetworking/AFURLRequestSerialization.h>
 #import <AFNetworking/AFURLResponseSerialization.h>
 #import <AFNetworking/AFHTTPRequestOperationManager.h>
+#import "KAAQuestion.h"
 
-@interface KAAPIClient : AFHTTPRequestOperationManager
+@interface KAAAPIClient : AFHTTPRequestOperationManager
 
-+ (KAAPIClient *)sharedClient;
++ (KAAAPIClient *)sharedClient;
+
+- (void)postQuestion:(KAAQuestion *)question completion:(void (^)(BOOL))completion;
 
 @end
