@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		07952B3D181C546B0056DCFB /* KAAQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07952B3C181C546B0056DCFB /* KAAQuestionViewController.m */; };
 		07952B41181C66330056DCFB /* KAAQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 07952B40181C66330056DCFB /* KAAQuestion.m */; };
-		07952B47181C6B600056DCFB /* KAACategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 07952B46181C6B600056DCFB /* KAACategory.m */; };
 		079931A2181C3E550096D54B /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 079931A1181C3E550096D54B /* Storyboard.storyboard */; };
 		07BF81FA181C22BC003F8C2B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07BF81F9181C22BC003F8C2B /* Foundation.framework */; };
 		07BF81FC181C22BC003F8C2B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07BF81FB181C22BC003F8C2B /* CoreGraphics.framework */; };
@@ -40,8 +39,6 @@
 		07952B3C181C546B0056DCFB /* KAAQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KAAQuestionViewController.m; path = Controllers/KAAQuestionViewController.m; sourceTree = "<group>"; };
 		07952B3F181C66330056DCFB /* KAAQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KAAQuestion.h; path = Models/KAAQuestion.h; sourceTree = "<group>"; };
 		07952B40181C66330056DCFB /* KAAQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KAAQuestion.m; path = Models/KAAQuestion.m; sourceTree = "<group>"; };
-		07952B45181C6B600056DCFB /* KAACategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KAACategory.h; path = Models/KAACategory.h; sourceTree = "<group>"; };
-		07952B46181C6B600056DCFB /* KAACategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KAACategory.m; path = Models/KAACategory.m; sourceTree = "<group>"; };
 		079931A1181C3E550096D54B /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Storyboard.storyboard; path = Views/Storyboard.storyboard; sourceTree = "<group>"; };
 		07BF81F6181C22BC003F8C2B /* kaas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kaas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07BF81F9181C22BC003F8C2B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -101,8 +98,6 @@
 			children = (
 				07952B3F181C66330056DCFB /* KAAQuestion.h */,
 				07952B40181C66330056DCFB /* KAAQuestion.m */,
-				07952B45181C6B600056DCFB /* KAACategory.h */,
-				07952B46181C6B600056DCFB /* KAACategory.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -320,7 +315,6 @@
 				07952B41181C66330056DCFB /* KAAQuestion.m in Sources */,
 				07952B3D181C546B0056DCFB /* KAAQuestionViewController.m in Sources */,
 				07BF8207181C22BC003F8C2B /* KAAAPIClient.m in Sources */,
-				07952B47181C6B600056DCFB /* KAACategory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

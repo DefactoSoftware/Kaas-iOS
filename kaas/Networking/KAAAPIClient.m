@@ -22,7 +22,7 @@ static NSString *const KAAAPIQuestionsEndpoint = @"/questions";
         @"question": @{
             @"user_id": @(question.userID),
             @"question": question.question,
-            @"category_id": @(question.categoryID)
+            @"category_name": question.categoryName
         }
     };
     

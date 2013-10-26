@@ -11,7 +11,7 @@
 @interface KAAQuestion : NSObject
 
 @property NSInteger userID;
-@property NSInteger categoryID;
+@property NSString *categoryName;
 @property NSString *question;
 
 @end

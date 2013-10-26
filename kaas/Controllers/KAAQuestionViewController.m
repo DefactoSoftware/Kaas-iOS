@@ -39,7 +39,7 @@
 - (IBAction)askNowButtonTapped:(id)sender {
     KAAQuestion *question = [[KAAQuestion alloc] init];
     question.question = self.questionTextView.text;
-    question.categoryID = 1;
+    question.categoryName = self.categoryTextField.text;
     question.userID = 1;
     [[KAAAPIClient sharedClient] postQuestion:question completion:^(BOOL success) {
         if (success) {
@@ -73,7 +73,9 @@
 - (void)autoCompleteTextField:(MLPAutoCompleteTextField *)textField
  possibleCompletionsForString:(NSString *)string
             completionHandler:(void (^)(NSArray *))handler {
-    handler(self.categories);
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF like[c] %@", [string stringByAppendingString:@"*"]];
+    NSArray *filteredArray = [self.categories filteredArrayUsingPredicate:predicate];
+    handler(filteredArray);
 }
 
 @end
