@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MLPAutoCompleteTextField/MLPAutoCompleteTextField.h>
 
 @interface KAAQuestionViewController : UIViewController
+
+@property (weak, nonatomic) MLPAutoCompleteTextField *categoryTextField;
+@property (weak, nonatomic) IBOutlet UITextView *questionTextView;
+@property (weak, nonatomic) IBOutlet UIButton *askNowButton;
+
+- (IBAction)askNowButtonTapped:(id)sender;
 
 @end
