@@ -189,6 +189,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Jurre Stender";
 				TargetAttributes = {
+					07BF81F5181C22BC003F8C2B = {
+						DevelopmentTeam = CF9WCHX389;
+					};
 					07BF8216181C22BC003F8C2B = {
 						TestTargetID = 07BF81F5181C22BC003F8C2B;
 					};
@@ -382,11 +385,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jurre Stender (NPDR323LHN)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "kaas/kaas-Prefix.pch";
 				INFOPLIST_FILE = "kaas/kaas-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "FA5DF4BB-E753-404C-95AA-BC04F04A8DC6";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -397,11 +403,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jurre Stender (NPDR323LHN)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "kaas/kaas-Prefix.pch";
 				INFOPLIST_FILE = "kaas/kaas-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "FA5DF4BB-E753-404C-95AA-BC04F04A8DC6";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

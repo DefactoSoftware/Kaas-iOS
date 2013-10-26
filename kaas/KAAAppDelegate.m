@@ -18,6 +18,8 @@
     
 	[[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
     
+    [application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge)];
+    
 	UIViewController *viewController = [[UITableViewController alloc] initWithStyle:UITableViewStylePlain];
 	self.navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
     
@@ -26,6 +28,22 @@
 	[self.window makeKeyAndVisible];
     
 	return YES;
+}
+
+- (void)application:(UIApplication *)application
+didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    NSLog(@"Device token: %@", deviceToken);
+    NSString *token = [NSString stringWithFormat:@"%@", [deviceToken description]];
+    token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
+    token = [token stringByReplacingOccurrencesOfString:@"<" withString:@""];
+    token = [token stringByReplacingOccurrencesOfString:@">" withString:@""];
+    
+    NSLog(@"token string: %@", token);
+}
+
+- (void)application:(UIApplication *)application
+didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    NSLog(@"Failed: %@", error);
 }
 
 @end

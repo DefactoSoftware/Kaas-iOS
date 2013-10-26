@@ -1,5 +1,4 @@
 #import "KAAPIClient.h"
-#import "AFJSONRequestOperation.h"
 
 static NSString *const KAAPIBaseURLString = @"kaas.herokuapp.com/api/v1";
 
