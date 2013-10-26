@@ -10,4 +10,7 @@
 
 @interface KAACategory : NSObject
 
+@property NSInteger categoryID;
+@property NSString *name;
+
 @end
