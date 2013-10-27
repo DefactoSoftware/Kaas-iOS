@@ -11,6 +11,7 @@
 
 @interface KAAQuestionViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *menuBarButton;
 @property (weak, nonatomic) MLPAutoCompleteTextField *categoryTextField;
 @property (weak, nonatomic) IBOutlet UITextView *questionTextView;
 @property (weak, nonatomic) IBOutlet UIButton *askNowButton;
