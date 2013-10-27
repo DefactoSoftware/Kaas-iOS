@@ -1,26 +1,27 @@
 //
-//  KAAAnswerableViewController.m
+//  KAAAskedViewController.m
 //  kaas
 //
 //  Created by Jurre Stender on 27/10/13.
 //  Copyright (c) 2013 Jurre Stender. All rights reserved.
 //
 
-#import "KAAAnswerableViewController.h"
-#import "KAAAnswerableCell.h"
+#import "KAAAskedViewController.h"
+#import "KAAQuestion.h"
 #import "KAAAPIClient.h"
 #import <CSNotificationView/CSNotificationView.h>
+#import "KAAAnswerableCell.h"
 #import "KAAAnswerViewController.h"
 
 static NSString *const KAAAnswerableCellIdentifier = @"KAAAnswerableCellIdentifier";
 
-@interface KAAAnswerableViewController ()
+@interface KAAAskedViewController ()
 
 @property NSArray *questions;
 
 @end
 
-@implementation KAAAnswerableViewController
+@implementation KAAAskedViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,7 +35,7 @@ static NSString *const KAAAnswerableCellIdentifier = @"KAAAnswerableCellIdentifi
 }
 
 - (void)loadData {
-    [[KAAAPIClient sharedClient] getAnswerablesForUserID:1 completion:^(BOOL success, NSArray *answerables) {
+    [[KAAAPIClient sharedClient] getAskedQuestionsForUserID:1 completion:^(BOOL success, NSArray *answerables) {
         if (success) {
             self.questions = answerables;
             [self.tableView reloadData];

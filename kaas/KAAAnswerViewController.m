@@ -20,6 +20,13 @@
     [super viewDidLoad];
 	
     self.questionTextView.text = self.question.question;
+    if (!(self.question.answer == (id)[NSNull null])) {
+        self.answerTextView.text = self.question.answer;
+        self.titleLabel.text = @"ANSWERED!";
+    } else {
+        self.titleLabel.text = @"YOU AKSED";
+        self.answerTextView.text = @"No one answered yet..";
+    }
 }
 
 - (IBAction)answerButtonTapped:(id)sender {

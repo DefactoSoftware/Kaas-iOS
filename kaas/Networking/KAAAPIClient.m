@@ -42,6 +42,31 @@ static NSString *const KAAAPIAnswerablesEndpointFormat = @"/users/%d/answerables
     }];
 }
 
+- (void)getAskedQuestionsForUserID:(NSInteger)userID completion:(void (^)(BOOL, NSArray*))completion {
+    NSString *endpoint = [NSString stringWithFormat:@"%@%@%d%@", KAAPIBaseURLString, @"/users/", userID, KAAAPIQuestionsEndpoint];
+    
+    [self GET:endpoint parameters:nil
+      success:^(AFHTTPRequestOperation *operation, id responseObject) {
+          NSArray *answerableDicts = responseObject[@"questions"];
+          NSMutableArray *answerables = [[NSMutableArray alloc] init];
+          
+          for (NSDictionary *dict in answerableDicts) {
+              KAAQuestion *question = [[KAAQuestion alloc] init];
+              question.question = dict[@"question"];
+              question.userID = [dict[@"user_id"] integerValue];
+              question.categoryName = dict[@"category_name"];
+              question.timeAgoString = dict[@"time_ago_string"];
+              question.questionID = [dict[@"id"] integerValue];
+              question.answer = dict[@"answer"];
+              [answerables addObject:question];
+          }
+          
+          completion(YES, answerables);
+      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+          completion(NO, nil);
+      }];
+}
+
 - (void)postAnswer:(NSString *)answer
      forQuestionID:(NSInteger)questionID
             userID:(NSInteger)userID completion:(void (^)(BOOL))completion {
@@ -53,7 +78,7 @@ static NSString *const KAAAPIAnswerablesEndpointFormat = @"/users/%d/answerables
         }
      };
     
-    [self PUT:endpoint parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [self PATCH:endpoint parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         completion(YES);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         completion(NO);

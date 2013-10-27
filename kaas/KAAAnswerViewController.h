@@ -11,6 +11,7 @@
 
 @interface KAAAnswerViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIView *questionBackgroundView;
 @property (weak, nonatomic) IBOutlet UITextView *questionTextView;
 @property (strong, nonatomic) IBOutlet UITextView *answerTextView;

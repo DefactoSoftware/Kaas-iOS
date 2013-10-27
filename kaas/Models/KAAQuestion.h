@@ -15,5 +15,6 @@
 @property NSString *categoryName;
 @property NSString *question;
 @property NSString *timeAgoString;
+@property NSString *answer;
 
 @end
