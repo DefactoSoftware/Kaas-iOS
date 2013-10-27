@@ -1,7 +1,9 @@
 #import "KAAAPIClient.h"
+#import "KAAQuestion.h"
 
 static NSString *const KAAPIBaseURLString = @"http://kaas.herokuapp.com/api/v1";
 static NSString *const KAAAPIQuestionsEndpoint = @"/questions";
+static NSString *const KAAAPIAnswerablesEndpointFormat = @"/users/%d/answerables";
 
 @implementation KAAAPIClient
 
@@ -13,6 +15,49 @@ static NSString *const KAAAPIQuestionsEndpoint = @"/questions";
     });
     
     return _sharedClient;
+}
+
+- (void)getAnswerablesForUserID:(NSInteger)userID completion:(void (^)(BOOL, NSArray*))completion {
+    NSString *answerablesURL = [NSString stringWithFormat:KAAAPIAnswerablesEndpointFormat, userID];
+    NSString *endpoint = [NSString stringWithFormat:@"%@%@", KAAPIBaseURLString, answerablesURL];
+    
+    [self GET:endpoint parameters:nil
+      success:^(AFHTTPRequestOperation *operation, id responseObject) {
+          NSArray *answerableDicts = responseObject[@"answerables"];
+          NSMutableArray *answerables = [[NSMutableArray alloc] init];
+          
+          for (NSDictionary *dict in answerableDicts) {
+              KAAQuestion *question = [[KAAQuestion alloc] init];
+              question.question = dict[@"question"];
+              question.userID = [dict[@"user_id"] integerValue];
+              question.categoryName = dict[@"category_name"];
+              question.timeAgoString = dict[@"time_ago_string"];
+              question.questionID = [dict[@"id"] integerValue];
+              [answerables addObject:question];
+          }
+          
+          completion(YES, answerables);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        completion(NO, nil);
+    }];
+}
+
+- (void)postAnswer:(NSString *)answer
+     forQuestionID:(NSInteger)questionID
+            userID:(NSInteger)userID completion:(void (^)(BOOL))completion {
+    NSString *endpoint = [NSString stringWithFormat:@"%@%@%@%d", KAAPIBaseURLString, KAAAPIQuestionsEndpoint, @"/", questionID];
+    NSDictionary *params = @{
+        @"question": @{
+            @"answer": answer,
+            @"user_answer_id": @(userID)
+        }
+     };
+    
+    [self PUT:endpoint parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        completion(YES);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        completion(NO);
+    }];
 }
 
 - (void)postQuestion:(KAAQuestion *)question completion:(void (^)(BOOL))completion {

@@ -10,8 +10,10 @@
 
 @interface KAAQuestion : NSObject
 
+@property NSInteger questionID;
 @property NSInteger userID;
 @property NSString *categoryName;
 @property NSString *question;
+@property NSString *timeAgoString;
 
 @end

@@ -8,6 +8,9 @@
 
 #import "KAAAnswerableViewController.h"
 #import "KAAAnswerableCell.h"
+#import "KAAAPIClient.h"
+#import <CSNotificationView/CSNotificationView.h>
+#import "KAAAnswerViewController.h"
 
 static NSString *const KAAAnswerableCellIdentifier = @"KAAAnswerableCellIdentifier";
 
@@ -26,18 +29,41 @@ static NSString *const KAAAnswerableCellIdentifier = @"KAAAnswerableCellIdentifi
     self.tableView.dataSource = self;
     self.cancelBarButton.target = self;
     self.cancelBarButton.action = @selector(dismissViewController);
+    
+    [self loadData];
+}
+
+- (void)loadData {
+    [[KAAAPIClient sharedClient] getAnswerablesForUserID:1 completion:^(BOOL success, NSArray *answerables) {
+        if (success) {
+            self.questions = answerables;
+            [self.tableView reloadData];
+        } else {
+            [CSNotificationView showInViewController:self
+                                               style:CSNotificationViewStyleError
+                                             message:@"Something went wrong :("];
+        }
+    }];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"KAASegueIdentifierToAnswer"]) {
+        KAAQuestion *question = self.questions[self.tableView.indexPathForSelectedRow.row];
+        ((KAAAnswerViewController *)segue.destinationViewController).question = question;
+    }
 }
 
 #pragma mark - UITableView
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return self.questions.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     KAAAnswerableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:KAAAnswerableCellIdentifier];
-    cell.title.text = @"Just now";
-    cell.body.text = @"Retro Bushwick McSweeney's, put a bird on it dreamcatcher skateboard cliche hoodie Helvetica bespoke iPhone.";
+    KAAQuestion *question = self.questions[indexPath.row];
+    cell.title.text = question.timeAgoString;
+    cell.body.text = question.question;
     return cell;
 }
 
