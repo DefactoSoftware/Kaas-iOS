@@ -24,7 +24,7 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
     
-    self.categories = @[@"Foo", @"Bar", @"Baz", @"Fizz", @"Buzz"];
+    self.categories = @[@"Network", @"Umami", @"Hackathon", @"Programming", @"Berlin", @"China", @"Lufthansa"];
 	
     self.questionTextView.textContainerInset = UIEdgeInsetsMake(15.0f, 15.0f, 15.0f, 15.0f);
     self.questionTextView.delegate = self;
@@ -37,6 +37,7 @@
 }
 
 - (IBAction)askNowButtonTapped:(id)sender {
+    self.askNowButton.enabled = NO;
     KAAQuestion *question = [[KAAQuestion alloc] init];
     question.question = self.questionTextView.text;
     question.categoryName = self.categoryTextField.text;
@@ -49,6 +50,7 @@
         } else {
             [CSNotificationView showInViewController:self style:CSNotificationViewStyleError message:@"Something went wrong :("];
         }
+        self.askNowButton.enabled = YES;
     }];
 }
 
