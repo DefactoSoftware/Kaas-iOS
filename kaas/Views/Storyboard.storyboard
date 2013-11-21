@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A2093" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="7He-ha-bDG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="7He-ha-bDG">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
         <!--Answerable View Controller - YOU KNOW THIS-->
@@ -73,7 +73,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GJc-yN-aPK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1717" y="-826"/>
+            <point key="canvasLocation" x="841" y="768"/>
         </scene>
         <!--Answer View Controller-->
         <scene sceneID="4sM-m1-ONq">
@@ -167,7 +167,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1kT-Tp-HKh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2114" y="-826"/>
+            <point key="canvasLocation" x="1238" y="768"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="LgG-jT-yxn">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="YPL-DS-8qn" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Fsn-Ri-ZR5">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="baT-2l-PZT" kind="relationship" relationship="rootViewController" id="7ay-ZI-kPg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B9X-Hq-Bzu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-463" y="1454"/>
         </scene>
         <!--Question View Controller-->
         <scene sceneID="vdy-BH-j4h">
@@ -290,7 +305,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5qL-4l-0vO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="899" y="-122"/>
+            <point key="canvasLocation" x="23" y="1472"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1DP-uN-FqY">
@@ -304,12 +319,61 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="baT-2l-PZT" kind="relationship" relationship="rootViewController" id="yQd-Ga-Ci1"/>
+                        <segue destination="eUu-sI-hJf" kind="relationship" relationship="rootViewController" id="0xK-eI-taU"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2lI-1o-tOf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="417" y="-122"/>
+            <point key="canvasLocation" x="391" y="-122"/>
+        </scene>
+        <!--Register View Controller - REGISTER-->
+        <scene sceneID="8Pl-Ds-C8M">
+            <objects>
+                <viewController id="eUu-sI-hJf" customClass="KAARegisterViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uvM-YN-vfR"/>
+                        <viewControllerLayoutGuide type="bottom" id="13Y-he-zNU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aM2-NX-jt5">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kh0-go-BVG">
+                                <rect key="frame" x="15" y="98" width="290" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1wB-6C-6uk">
+                                <rect key="frame" x="15" y="136" width="290" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lbY-id-iUQ">
+                                <rect key="frame" x="15" y="174" width="290" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Marion-Bold" family="Marion" pointSize="22"/>
+                                <state key="normal" title="Register" backgroundImage="BigButton">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="askNowButtonTapped:" destination="baT-2l-PZT" eventType="touchUpInside" id="sy2-EQ-ctf"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="REGISTER" id="Cv7-Jo-Vdx"/>
+                    <connections>
+                        <outlet property="emailAddressTextField" destination="Kh0-go-BVG" id="3Sa-Xe-vMF"/>
+                        <outlet property="registerButton" destination="lbY-id-iUQ" id="9OE-90-LAh"/>
+                        <outlet property="usernameTextField" destination="1wB-6C-6uk" id="afA-yR-9Oh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n3b-iN-zAR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="945" y="-122"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ERJ-IZ-uwB">
@@ -328,7 +392,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oo3-iQ-Cwr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1191" y="-826"/>
+            <point key="canvasLocation" x="315" y="768"/>
         </scene>
         <!--Asked View Controller - YOU ASKED-->
         <scene sceneID="S25-zs-xhD">
@@ -399,7 +463,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KxW-Iv-QWa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1843" y="402"/>
+            <point key="canvasLocation" x="967" y="1996"/>
         </scene>
         <!--Answer View Controller-->
         <scene sceneID="tHT-Qw-gtq">
@@ -483,7 +547,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QjC-G1-DPm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2240" y="402"/>
+            <point key="canvasLocation" x="1364" y="1996"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="u9x-F2-O2E">
@@ -502,7 +566,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C0M-mf-wRQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1317" y="402"/>
+            <point key="canvasLocation" x="441" y="1996"/>
         </scene>
     </scenes>
     <resources>

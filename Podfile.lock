@@ -1,25 +1,23 @@
 PODS:
-  - AFNetworking (2.0.1):
+  - AFNetworking (2.0.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
     - AFNetworking/UIKit
-  - AFNetworking/NSURLConnection (2.0.1):
+  - AFNetworking/NSURLConnection (2.0.3):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.0.1):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.0.1)
-  - AFNetworking/Security (2.0.1)
-  - AFNetworking/Serialization (2.0.1)
-  - AFNetworking/UIKit (2.0.1):
+  - AFNetworking/NSURLSession (2.0.3):
     - AFNetworking/NSURLConnection
-  - CSNotificationView (0.3)
+  - AFNetworking/Reachability (2.0.3)
+  - AFNetworking/Security (2.0.3)
+  - AFNetworking/Serialization (2.0.3)
+  - AFNetworking/UIKit (2.0.3):
+    - AFNetworking/NSURLConnection
+  - CSNotificationView (0.3.3)
   - MLPAutoCompleteTextField (1.5)
   - TPKeyboardAvoiding (1.2.1)
   - ViewDeck (2.2.11)
@@ -32,10 +30,10 @@ DEPENDENCIES:
   - ViewDeck (= 2.2.11)
 
 SPEC CHECKSUMS:
-  AFNetworking: a6f11ac4ac087303e6ff87adc1ba57b0dac20ef8
-  CSNotificationView: 5b5040243ccf631f2039a670ee1dbd2160890f90
+  AFNetworking: e499052cbf3d743e9bb727bb37adb9dc2547ba15
+  CSNotificationView: f14352657afe7255be9fb2446eb99d5914b97b5d
   MLPAutoCompleteTextField: 8baf7b9a78cbc6022a50f985c1c56784248821fe
   TPKeyboardAvoiding: 0536c563e6c8b8e95a7c4bf87fca9c0991f5e826
   ViewDeck: b5eddc8559b0e47259ab7addbf2de6768061f139
 
-COCOAPODS: 0.27.1
+COCOAPODS: 0.28.0
