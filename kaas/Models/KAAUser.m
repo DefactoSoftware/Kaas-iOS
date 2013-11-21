@@ -13,9 +13,11 @@
 + (KAAUser *)userFromDictionary:(NSDictionary *)dictionary {
     KAAUser *user = [[KAAUser alloc] init];
     
-    user.username = dictionary[@"name"];
-    user.emailAddress = dictionary[@"email"];
-    user.userId = [dictionary[@"id"] integerValue];
+    NSDictionary *userDictionary = dictionary[@"user"];
+    
+    user.username = userDictionary[@"name"];
+    user.emailAddress = userDictionary[@"email"];
+    user.userId = [userDictionary[@"id"] integerValue];
     
     return user;
 }

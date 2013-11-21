@@ -18,4 +18,5 @@
 - (IBAction)connectButtonPressed:(id)sender;
 - (IBAction)skipButtonPressed:(id)sender;
 - (IBAction)importButtonPressed:(id)sender;
+- (IBAction)toggleSkillSwitch:(UISwitch *)skillSwitch;
 @end

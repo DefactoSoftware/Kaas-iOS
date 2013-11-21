@@ -150,8 +150,11 @@ static NSString *const KAAPICategoriesEndpoint = @"/user_categories";
                         completion:(void (^)(BOOL))completion {
     NSString *endpoint = [NSString stringWithFormat:@"%@%@", KAAPIBaseURLString, KAAPICategoriesEndpoint];
     
-    NSDictionary *params = @{ @"user_id": @(userId),
-                              @"name": name
+    NSDictionary *params = @{
+                             @"user_category": @{
+                                     @"user_id": @(userId),
+                                    @"name": name
+                                }
                             };
     
     [self POST:endpoint parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {

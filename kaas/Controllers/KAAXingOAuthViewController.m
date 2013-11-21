@@ -28,6 +28,7 @@ static NSString *const KAAQuestionsNavigationControllerIdentifier = @"KAANavigat
 
 @interface KAAXingOAuthViewController()
 @property (nonatomic, strong) NSArray *skills;
+@property (nonatomic, strong) NSMutableArray *skillStates;
 @property (nonatomic, assign) NSInteger skillsImportCount;
 @end
 
@@ -40,6 +41,8 @@ static NSString *const KAAQuestionsNavigationControllerIdentifier = @"KAANavigat
     
     self.skillsTableView.dataSource = self;
     self.skillsTableView.delegate = self;
+    
+    self.skillStates = [[NSMutableArray alloc] init];
 }
 
 - (void)fetchSkillsWithAuthentication:(GTMOAuthAuthentication *)authentication {
@@ -69,6 +72,9 @@ static NSString *const KAAQuestionsNavigationControllerIdentifier = @"KAANavigat
         NSString *skills = user[@"users"][0][@"haves"];
 
         self.skills = [skills componentsSeparatedByString: @", "];
+        for (NSString *skill in self.skills) {
+            [self.skillStates addObject:@NO];
+        }
         [self.skillsTableView reloadData];
     }
 }
@@ -88,12 +94,12 @@ static NSString *const KAAQuestionsNavigationControllerIdentifier = @"KAANavigat
 }
 
 - (void)importNextSkill {
-    if (self.skillsImportCount <= self.skills.count) {
+    if (self.skillsImportCount < self.skills.count) {
         // Read if user wants to import skill
         KAASkillCell *skillCell = (KAASkillCell *) [self tableView:self.skillsTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:self.skillsImportCount inSection:0]];
     
         NSString *skillName = skillCell.nameLabel.text;
-        BOOL import = [skillCell.skillSwitch isOn];
+        BOOL import = [[self.skillStates objectAtIndex:self.skillsImportCount] boolValue];
     
         if (import) {
             // Import skill
@@ -104,7 +110,7 @@ static NSString *const KAAQuestionsNavigationControllerIdentifier = @"KAANavigat
             }];
         }
     } else {
-        // Skills are imported
+        [self toQuestionsViewController];
     }
 }
 
@@ -173,6 +179,12 @@ static NSString *const KAAQuestionsNavigationControllerIdentifier = @"KAANavigat
 
 #pragma mark - UITableView 
 
+- (IBAction)toggleSkillSwitch:(UISwitch *)skillSwitch {
+    NSInteger row = skillSwitch.tag;
+
+    [self.skillStates replaceObjectAtIndex:row withObject:[NSNumber numberWithBool:[skillSwitch isOn]]];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     KAASkillCell *cell = [self.skillsTableView dequeueReusableCellWithIdentifier:KAASkillCellIdentifier];
 	if (!cell) {
@@ -182,6 +194,7 @@ static NSString *const KAAQuestionsNavigationControllerIdentifier = @"KAANavigat
     NSString *skill = [self.skills objectAtIndex:indexPath.row];
     
     cell.nameLabel.text = skill;
+    cell.skillSwitch.tag = indexPath.row;
     
     return cell;
 }

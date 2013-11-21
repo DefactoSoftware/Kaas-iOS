@@ -9,8 +9,13 @@
 #import "KAARegisterViewController.h"
 #import "KAAAPIClient.h"
 #import <CSNotificationView/CSNotificationView.h>
+#import "KAAXingOAuthViewController.h"
 
 static NSString *const KAAImportSkillsSegueIdentifier = @"KAASegueIdentifierToImportSkills";
+
+@interface KAARegisterViewController()
+@property (nonatomic, strong) KAAUser *loggedInUser;
+@end
 
 @implementation KAARegisterViewController
 
@@ -38,6 +43,7 @@ static NSString *const KAAImportSkillsSegueIdentifier = @"KAASegueIdentifierToIm
             [CSNotificationView showInViewController:self
                                                style:CSNotificationViewStyleSuccess
                                              message:@"You have successfully been registered"];
+            self.loggedInUser = user;
             [self performSegueWithIdentifier:KAAImportSkillsSegueIdentifier sender:self];
         } else {
             [CSNotificationView showInViewController:self
@@ -45,6 +51,15 @@ static NSString *const KAAImportSkillsSegueIdentifier = @"KAASegueIdentifierToIm
                                              message:@"Something went wrong :("];
         }
     }];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:KAAImportSkillsSegueIdentifier]) {
+        KAAXingOAuthViewController *destinationController = (KAAXingOAuthViewController *) segue.destinationViewController;
+        destinationController.loggedInUser = self.loggedInUser;
+    } else {
+        [super performSegueWithIdentifier:segue.identifier sender:sender];
+    }
 }
 
 @end
