@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KAAXingOAuthViewController : UIViewController
+@interface KAAXingOAuthViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *connectButton;
+@property (weak, nonatomic) IBOutlet UITableView *skillsTableView;
 
 - (IBAction)connectButtonPressed:(id)sender;
 @end

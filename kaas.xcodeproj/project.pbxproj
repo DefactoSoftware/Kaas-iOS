@@ -29,6 +29,7 @@
 		E445567F183E15BA004A7215 /* KAARegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E445567E183E15BA004A7215 /* KAARegisterViewController.m */; };
 		E4455682183E18AC004A7215 /* KAAUser.m in Sources */ = {isa = PBXBuildFile; fileRef = E4455681183E18AC004A7215 /* KAAUser.m */; };
 		E4455685183E229E004A7215 /* KAAXingOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4455684183E229E004A7215 /* KAAXingOAuthViewController.m */; };
+		E480FCA8183E547E0056A118 /* KAASkillCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E480FCA7183E547E0056A118 /* KAASkillCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,8 @@
 		E4455681183E18AC004A7215 /* KAAUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KAAUser.m; path = Models/KAAUser.m; sourceTree = "<group>"; };
 		E4455683183E229E004A7215 /* KAAXingOAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KAAXingOAuthViewController.h; path = Controllers/KAAXingOAuthViewController.h; sourceTree = "<group>"; };
 		E4455684183E229E004A7215 /* KAAXingOAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KAAXingOAuthViewController.m; path = Controllers/KAAXingOAuthViewController.m; sourceTree = "<group>"; };
+		E480FCA6183E547E0056A118 /* KAASkillCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KAASkillCell.h; path = Views/KAASkillCell.h; sourceTree = "<group>"; };
+		E480FCA7183E547E0056A118 /* KAASkillCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KAASkillCell.m; path = Views/KAASkillCell.m; sourceTree = "<group>"; };
 		E566AA2FA8FB4E93B4655255 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -141,6 +144,8 @@
 				079931A1181C3E550096D54B /* Storyboard.storyboard */,
 				07815C19181C8918004B62BC /* KAAAnswerableCell.h */,
 				07815C1A181C8918004B62BC /* KAAAnswerableCell.m */,
+				E480FCA6183E547E0056A118 /* KAASkillCell.h */,
+				E480FCA7183E547E0056A118 /* KAASkillCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -347,6 +352,7 @@
 			files = (
 				07815C1E181CA1CB004B62BC /* KAAAnswerViewController.m in Sources */,
 				07BF8210181C22BC003F8C2B /* KAAAppDelegate.m in Sources */,
+				E480FCA8183E547E0056A118 /* KAASkillCell.m in Sources */,
 				07BF820D181C22BC003F8C2B /* main.m in Sources */,
 				E4455682183E18AC004A7215 /* KAAUser.m in Sources */,
 				07952B41181C66330056DCFB /* KAAQuestion.m in Sources */,

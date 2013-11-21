@@ -11,6 +11,7 @@
 #import <gtm-oauth/GTMOAuthViewControllerTouch.h>
 #import <gtm-oauth/GTMHTTPFetcher.h>
 #import "KAAAPIClient.h"
+#import "KAASkillCell.h"
 
 static NSString *const KAAXingConsumerKey = @"6a875450a5af3a3ce6a9";
 static NSString *const KAAXingConsumerSecret = @"9a3057d7b93b7fed0520022f4ee8217391be4c72";
@@ -21,12 +22,20 @@ static NSString *const KAAXingAuthorizeEndpoint = @"authorize";
 static NSString *const KAAXingMeEndpoint = @"users/me";
 static NSString *const KAAOAuthCallbackUrl = @"http://kaas.defacto.nl/success";
 static NSString *const KAAXingKeychainItemName = @"xing";
+static NSString *const KAASkillCellIdentifier = @"SkillCell";
 
+@interface KAAXingOAuthViewController()
+@property (nonatomic, strong) NSArray *skills;
+@end
 
 @implementation KAAXingOAuthViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.skillsTableView.hidden = YES;
+    
+    self.skillsTableView.dataSource = self;
+    self.skillsTableView.delegate = self;
 }
 
 - (void)fetchSkillsWithAuthentication:(GTMOAuthAuthentication *)authentication {
@@ -47,6 +56,16 @@ static NSString *const KAAXingKeychainItemName = @"xing";
                           
                           options:kNilOptions
                           error:&error];
+    
+    if (error == nil) {
+        self.connectButton.hidden = YES;
+        self.skillsTableView.hidden = NO;
+        
+        NSString *skills = user[@"users"][0][@"haves"];
+
+        self.skills = [skills componentsSeparatedByString: @", "];
+        [self.skillsTableView reloadData];
+    }
 }
 
 
@@ -104,4 +123,24 @@ static NSString *const KAAXingKeychainItemName = @"xing";
 - (IBAction)connectButtonPressed:(id)sender {
     [self signInToXing];
 }
+
+#pragma mark - UITableView 
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    KAASkillCell *cell = [self.skillsTableView dequeueReusableCellWithIdentifier:KAASkillCellIdentifier];
+	if (!cell) {
+		cell = [[KAASkillCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:KAASkillCellIdentifier];
+	}
+    
+    NSString *skill = [self.skills objectAtIndex:indexPath.row];
+    
+    cell.nameLabel.text = skill;
+    
+    return cell;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.skills.count;
+}
+
 @end
