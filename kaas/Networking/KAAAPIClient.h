@@ -5,6 +5,7 @@
 #import "KAAUser.h" 
 
 @interface KAAAPIClient : AFHTTPRequestOperationManager
+@property (nonatomic, strong) KAAUser *loggedInUser;
 
 + (KAAAPIClient *)sharedClient;
 
