@@ -51,7 +51,7 @@
     KAAQuestion *question = [[KAAQuestion alloc] init];
     question.question = self.questionTextView.text;
     question.categoryName = self.categoryTextField.text;
-    question.userID = 1;
+    question.userID = [KAAAPIClient sharedClient].loggedInUser.userId;
     [[KAAAPIClient sharedClient] postQuestion:question completion:^(BOOL success) {
         if (success) {
             self.questionTextView.text = @"";

@@ -30,7 +30,7 @@
 }
 
 - (IBAction)answerButtonTapped:(id)sender {
-    [[KAAAPIClient sharedClient] postAnswer:self.answerTextView.text forQuestionID:self.question.questionID userID:2 completion:^(BOOL success) {
+    [[KAAAPIClient sharedClient] postAnswer:self.answerTextView.text forQuestionID:self.question.questionID userID:[KAAAPIClient sharedClient].loggedInUser.userId completion:^(BOOL success) {
         if (success) {
             [CSNotificationView showInViewController:self style:CSNotificationViewStyleSuccess message:@"Thanks for answering!"];
             double delayInSeconds = 1.5;

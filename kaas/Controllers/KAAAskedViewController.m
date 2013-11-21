@@ -35,7 +35,7 @@ static NSString *const KAAAnswerableCellIdentifier = @"KAAAnswerableCellIdentifi
 }
 
 - (void)loadData {
-    [[KAAAPIClient sharedClient] getAskedQuestionsForUserID:1 completion:^(BOOL success, NSArray *answerables) {
+    [[KAAAPIClient sharedClient] getAskedQuestionsForUserID:[KAAAPIClient sharedClient].loggedInUser.userId completion:^(BOOL success, NSArray *answerables) {
         if (success) {
             self.questions = answerables;
             [self.tableView reloadData];
