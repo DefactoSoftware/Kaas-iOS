@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface KAAXingOAuthViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIButton *connectButton;
 
+- (IBAction)connectButtonPressed:(id)sender;
 @end

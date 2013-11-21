@@ -9,6 +9,8 @@
 #import "KAAXingOAuthViewController.h"
 #import <gtm-oauth/GTMOAuthAuthentication.h>
 #import <gtm-oauth/GTMOAuthViewControllerTouch.h>
+#import <gtm-oauth/GTMHTTPFetcher.h>
+#import "KAAAPIClient.h"
 
 static NSString *const KAAXingConsumerKey = @"6a875450a5af3a3ce6a9";
 static NSString *const KAAXingConsumerSecret = @"9a3057d7b93b7fed0520022f4ee8217391be4c72";
@@ -16,15 +18,39 @@ static NSString *const KAAXingAPIBaseUrl = @"https://api.xing.com/v1/";
 static NSString *const KAAXingRequestEndpoint = @"request_token";
 static NSString *const KAAXingAccessEndpoint = @"access_token";
 static NSString *const KAAXingAuthorizeEndpoint = @"authorize";
+static NSString *const KAAXingMeEndpoint = @"users/me";
 static NSString *const KAAOAuthCallbackUrl = @"http://kaas.defacto.nl/success";
 static NSString *const KAAXingKeychainItemName = @"xing";
+
 
 @implementation KAAXingOAuthViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self signInToXing];
 }
+
+- (void)fetchSkillsWithAuthentication:(GTMOAuthAuthentication *)authentication {
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    NSString *url = [NSString stringWithFormat:@"%@%@", KAAXingAPIBaseUrl, KAAXingMeEndpoint];
+    [request setURL:[NSURL URLWithString:url]];
+    
+    [request setHTTPMethod:@"GET"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    [authentication authorizeRequest:request];
+    
+    NSURLResponse *response;
+    NSError *error;
+    NSData *userResponseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    NSDictionary* user = [NSJSONSerialization
+                          JSONObjectWithData:userResponseData
+                          
+                          options:kNilOptions
+                          error:&error];
+}
+
+
+#pragma mark - Xing authentication
 
 - (GTMOAuthAuthentication *)xingAuthentication {
     GTMOAuthAuthentication *authentication = [[GTMOAuthAuthentication alloc] initWithSignatureMethod:kGTMOAuthSignatureMethodHMAC_SHA1
@@ -60,21 +86,22 @@ static NSString *const KAAXingKeychainItemName = @"xing";
     [[self navigationController] pushViewController:viewController animated:YES];
 }
 
+#pragma mark - OAuth response callback
+
+// Gets called after XING connect
 - (void)viewController:(UIViewController *)viewController
-        finishedWithAuth:(GTMOAuthAuthentication *)auth
+        finishedWithAuth:(GTMOAuthAuthentication *)authentication
                    error:(NSError *)error {
     if (error != nil) {
         // sign in failed
     } else {
-        // sign in succeeded
-        //
-        // With a GTMHTTPFetcher, use the auth object as an authorizer,
-        // like
-        //   [fetcher setAuthorizer:auth];
-        //
-        // or use it to sign a request directly, like
-        //    [auth authorizeRequest:myNSURLMutableRequest]
+        [self fetchSkillsWithAuthentication:authentication];
     }
 }
 
+#pragma mark - Connect button
+
+- (IBAction)connectButtonPressed:(id)sender {
+    [self signInToXing];
+}
 @end

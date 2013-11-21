@@ -326,7 +326,7 @@
             </objects>
             <point key="canvasLocation" x="391" y="-122"/>
         </scene>
-        <!--XingO Auth View Controller-->
+        <!--XingO Auth View Controller - IMPORT XING SKILLS-->
         <scene sceneID="uZ4-ev-JM7">
             <objects>
                 <viewController id="YAR-Lg-0zf" customClass="KAAXingOAuthViewController" sceneMemberID="viewController">
@@ -337,9 +337,34 @@
                     <view key="view" contentMode="scaleToFill" id="jFu-rz-ICg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SmR-ox-vHN">
+                                <rect key="frame" x="15" y="163" width="290" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Marion-Bold" family="Marion" pointSize="22"/>
+                                <state key="normal" title="Connect my XING profile" backgroundImage="BigButton">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="askNowButtonTapped:" destination="baT-2l-PZT" eventType="touchUpInside" id="42d-f2-oXJ"/>
+                                    <action selector="connectButtonPressed:" destination="YAR-Lg-0zf" eventType="touchUpInside" id="C8L-uG-StJ"/>
+                                    <action selector="registerButtonPressed:" destination="eUu-sI-hJf" eventType="touchUpInside" id="ZeI-1z-l6b"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You can import your XING skills into KAAS so that we know for which questions you are capable to answer." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" translatesAutoresizingMaskIntoConstraints="NO" id="CTG-bN-QZ7">
+                                <rect key="frame" x="15" y="84" width="290" height="71"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="LbF-E7-RYZ"/>
+                    <navigationItem key="navigationItem" title="IMPORT XING SKILLS" id="LbF-E7-RYZ"/>
+                    <connections>
+                        <outlet property="connectButton" destination="SmR-ox-vHN" id="0vj-eu-FSD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="47O-wd-Y6e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
