@@ -1,9 +1,11 @@
 #import "KAAAPIClient.h"
 #import "KAAQuestion.h"
+#import "KAAUser.h"
 
 static NSString *const KAAPIBaseURLString = @"http://kaas.herokuapp.com/api/v1";
 static NSString *const KAAAPIQuestionsEndpoint = @"/questions";
 static NSString *const KAAAPIAnswerablesEndpointFormat = @"/users/%d/answerables";
+static NSString *const KAAAPIUsersEndpoint = @"/users";
 
 @implementation KAAAPIClient
 
@@ -93,6 +95,23 @@ static NSString *const KAAAPIAnswerablesEndpointFormat = @"/users/%d/answerables
             @"user_id": @(question.userID),
             @"question": question.question,
             @"category_name": question.categoryName
+        }
+    };
+    
+    [self POST:endpoint parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        completion(YES);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        completion(NO);
+    }];
+}
+
+- (void)registerUserWithUsername:(NSString *)username emailAddress:(NSString *)emaiLAddress completion:(void (^)(BOOL))completion {
+    NSString *endpoint = [NSString stringWithFormat:@"%@%@", KAAPIBaseURLString, KAAAPIUsersEndpoint];
+    
+    NSDictionary *params = @{
+        @"user": @{
+            @"name": username,
+            @"email": emaiLAddress
         }
     };
     
