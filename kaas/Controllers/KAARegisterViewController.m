@@ -10,9 +10,7 @@
 #import "KAAAPIClient.h"
 #import <CSNotificationView/CSNotificationView.h>
 
-@interface KAARegisterViewController ()
-
-@end
+static NSString *const KAAImportSkillsSegueIdentifier = @"KAASegueIdentifierToImportSkills";
 
 @implementation KAARegisterViewController
 
@@ -40,6 +38,7 @@
             [CSNotificationView showInViewController:self
                                                style:CSNotificationViewStyleSuccess
                                              message:@"You have successfully been registered"];
+            [self performSegueWithIdentifier:KAAImportSkillsSegueIdentifier sender:self];
         } else {
             [CSNotificationView showInViewController:self
                                                style:CSNotificationViewStyleError

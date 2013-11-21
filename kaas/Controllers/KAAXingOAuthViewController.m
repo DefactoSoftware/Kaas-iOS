@@ -12,6 +12,7 @@
 #import <gtm-oauth/GTMHTTPFetcher.h>
 #import "KAAAPIClient.h"
 #import "KAASkillCell.h"
+#import "KAAAppDelegate.h"
 
 static NSString *const KAAXingConsumerKey = @"6a875450a5af3a3ce6a9";
 static NSString *const KAAXingConsumerSecret = @"9a3057d7b93b7fed0520022f4ee8217391be4c72";
@@ -23,9 +24,11 @@ static NSString *const KAAXingMeEndpoint = @"users/me";
 static NSString *const KAAOAuthCallbackUrl = @"http://kaas.defacto.nl/success";
 static NSString *const KAAXingKeychainItemName = @"xing";
 static NSString *const KAASkillCellIdentifier = @"SkillCell";
+static NSString *const KAAQuestionsNavigationControllerIdentifier = @"KAANavigationControllerQuestions";
 
 @interface KAAXingOAuthViewController()
 @property (nonatomic, strong) NSArray *skills;
+@property (nonatomic, assign) NSInteger skillsImportCount;
 @end
 
 @implementation KAAXingOAuthViewController
@@ -70,6 +73,40 @@ static NSString *const KAASkillCellIdentifier = @"SkillCell";
     }
 }
 
+- (void)toQuestionsViewController {
+    KAAAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+	appDelegate.window.rootViewController = [self.storyboard instantiateViewControllerWithIdentifier:KAAQuestionsNavigationControllerIdentifier];
+}
+
+#pragma mark - Importing skills
+
+- (void)importSkills {
+    if (self.skills.count > 0) {
+        self.skillsImportCount = 0;
+        [self importNextSkill];
+    }
+}
+
+- (void)importNextSkill {
+    if (self.skillsImportCount <= self.skills.count) {
+        // Read if user wants to import skill
+        KAASkillCell *skillCell = (KAASkillCell *) [self tableView:self.skillsTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:self.skillsImportCount inSection:0]];
+    
+        NSString *skillName = skillCell.nameLabel.text;
+        BOOL import = [skillCell.skillSwitch isOn];
+    
+        if (import) {
+            // Import skill
+            __weak KAAXingOAuthViewController *_self = self;
+            [[KAAAPIClient sharedClient] postUserCategoryWithUserId:self.loggedInUser.userId name:skillName completion:^(BOOL success) {
+                _self.skillsImportCount++;
+                [_self importNextSkill];
+            }];
+        }
+    } else {
+        // Skills are imported
+    }
+}
 
 #pragma mark - Xing authentication
 
@@ -127,9 +164,11 @@ static NSString *const KAASkillCellIdentifier = @"SkillCell";
 }
 
 - (IBAction)skipButtonPressed:(id)sender {
+    [self toQuestionsViewController];
 }
 
 - (IBAction)importButtonPressed:(id)sender {
+    [self importSkills];
 }
 
 #pragma mark - UITableView 

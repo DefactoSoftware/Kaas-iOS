@@ -154,7 +154,7 @@ static NSString *const KAAPICategoriesEndpoint = @"/user_categories";
                               @"name": name
                             };
     
-    [self POST:endpoint parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {        
+    [self POST:endpoint parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         completion(YES);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         completion(NO);
