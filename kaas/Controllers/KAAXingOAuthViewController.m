@@ -71,7 +71,7 @@ static NSString *const KAAQuestionsNavigationControllerIdentifier = @"KAANavigat
         
         NSString *skills = user[@"users"][0][@"haves"];
 
-        self.skills = [skills componentsSeparatedByString: @", "];
+        self.skills = [skills componentsSeparatedByString: @","];
         for (NSString *skill in self.skills) {
             [self.skillStates addObject:@NO];
         }
