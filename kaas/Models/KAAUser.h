@@ -14,4 +14,6 @@
 @property NSString *emailAddress;
 @property NSInteger userId;
 
++ (KAAUser *)userFromDictionary:(NSDictionary *)dictionary;
+
 @end

@@ -359,6 +359,7 @@
                                 </state>
                                 <connections>
                                     <action selector="askNowButtonTapped:" destination="baT-2l-PZT" eventType="touchUpInside" id="sy2-EQ-ctf"/>
+                                    <action selector="registerButtonPressed:" destination="eUu-sI-hJf" eventType="touchUpInside" id="bKH-1r-lfs"/>
                                 </connections>
                             </button>
                         </subviews>

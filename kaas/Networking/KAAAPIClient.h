@@ -2,6 +2,7 @@
 #import <AFNetworking/AFURLResponseSerialization.h>
 #import <AFNetworking/AFHTTPRequestOperationManager.h>
 #import "KAAQuestion.h"
+#import "KAAUser.h" 
 
 @interface KAAAPIClient : AFHTTPRequestOperationManager
 
@@ -18,5 +19,9 @@
 
 - (void)getAskedQuestionsForUserID:(NSInteger)userID
                         completion:(void (^)(BOOL, NSArray*))completion;
+
+- (void)registerUserWithUsername:(NSString *)username
+                    emailAddress:(NSString *)emailAddress
+                      completion:(void (^)(BOOL, KAAUser *))completion;
 
 @end

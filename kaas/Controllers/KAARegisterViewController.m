@@ -7,6 +7,8 @@
 //
 
 #import "KAARegisterViewController.h"
+#import "KAAAPIClient.h"
+#import <CSNotificationView/CSNotificationView.h>
 
 @interface KAARegisterViewController ()
 
@@ -27,6 +29,23 @@
 - (void)dismissKeyboard {
     [self.usernameTextField resignFirstResponder];
     [self.emailAddressTextField resignFirstResponder];
+}
+
+- (IBAction)registerButtonPressed:(id)sender {
+    NSString *username = self.usernameTextField.text;
+    NSString *emailAddress = self.emailAddressTextField.text;
+    
+    [[KAAAPIClient sharedClient] registerUserWithUsername:username emailAddress:emailAddress completion:^(BOOL success, KAAUser *user) {
+        if (success) {
+            [CSNotificationView showInViewController:self
+                                               style:CSNotificationViewStyleSuccess
+                                             message:@"You have successfully been registered"];
+        } else {
+            [CSNotificationView showInViewController:self
+                                               style:CSNotificationViewStyleError
+                                             message:@"Something went wrong :("];
+        }
+    }];
 }
 
 @end
