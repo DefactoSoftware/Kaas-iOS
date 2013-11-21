@@ -1,4 +1,4 @@
-#import "KAAAPIClient.h"
+    #import "KAAAPIClient.h"
 #import "KAAQuestion.h"
 
 
@@ -140,6 +140,7 @@ static NSString *const KAAPIDevicesEndpoint = @"/devices";
     
     [self POST:endpoint parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *userDictionary = (NSDictionary *) responseObject;
+
         KAAUser *user = [KAAUser userFromDictionary:userDictionary];
         
         completion(YES, user);

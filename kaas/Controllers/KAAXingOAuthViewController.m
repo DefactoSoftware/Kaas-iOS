@@ -108,6 +108,9 @@ static NSString *const KAAQuestionsNavigationControllerIdentifier = @"KAANavigat
                 _self.skillsImportCount++;
                 [_self importNextSkill];
             }];
+        } else {
+            self.skillsImportCount++;
+            [self importNextSkill];
         }
     } else {
         [self toQuestionsViewController];
