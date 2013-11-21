@@ -24,4 +24,7 @@
                     emailAddress:(NSString *)emailAddress
                       completion:(void (^)(BOOL, KAAUser *))completion;
 
+- (void)postSessionsForUser:(KAAUser *)user
+                 completion:(void (^)(BOOL, KAAUser *))completion;
+
 @end
