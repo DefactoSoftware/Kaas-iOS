@@ -10,5 +10,6 @@
 
 @interface KAASkillCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UIView *skillSwitch;
 
 @end

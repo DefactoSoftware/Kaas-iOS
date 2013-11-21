@@ -376,10 +376,15 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Nff-wO-CRT">
+                                                    <rect key="frame" x="251" y="6" width="51" height="31"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </switch>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="nameLabel" destination="yfC-od-5R1" id="8ku-9n-im7"/>
+                                            <outlet property="skillSwitch" destination="XaX-J7-exb" id="aHe-G6-rfu"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -387,9 +392,21 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="IMPORT XING SKILLS" id="LbF-E7-RYZ"/>
+                    <navigationItem key="navigationItem" title="IMPORT XING SKILLS" id="LbF-E7-RYZ">
+                        <barButtonItem key="leftBarButtonItem" title="Skip" id="MyF-4E-GOz">
+                            <connections>
+                                <action selector="skipButtonPressed:" destination="YAR-Lg-0zf" id="yho-sP-iTV"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Import" id="0Kk-ee-6ld">
+                            <connections>
+                                <action selector="importButtonPressed:" destination="YAR-Lg-0zf" id="dcQ-OS-huK"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="connectButton" destination="SmR-ox-vHN" id="0vj-eu-FSD"/>
+                        <outlet property="importButton" destination="0Kk-ee-6ld" id="Yul-Ie-zq1"/>
                         <outlet property="skillsTableView" destination="jDc-Ty-ruO" id="UjW-3h-4OE"/>
                     </connections>
                 </viewController>

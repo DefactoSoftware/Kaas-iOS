@@ -11,6 +11,9 @@
 @interface KAAXingOAuthViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *connectButton;
 @property (weak, nonatomic) IBOutlet UITableView *skillsTableView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *importButton;
 
 - (IBAction)connectButtonPressed:(id)sender;
+- (IBAction)skipButtonPressed:(id)sender;
+- (IBAction)importButtonPressed:(id)sender;
 @end

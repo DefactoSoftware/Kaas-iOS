@@ -33,6 +33,7 @@ static NSString *const KAASkillCellIdentifier = @"SkillCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.skillsTableView.hidden = YES;
+    self.importButton.enabled = NO;
     
     self.skillsTableView.dataSource = self;
     self.skillsTableView.delegate = self;
@@ -60,6 +61,7 @@ static NSString *const KAASkillCellIdentifier = @"SkillCell";
     if (error == nil) {
         self.connectButton.hidden = YES;
         self.skillsTableView.hidden = NO;
+        self.importButton.enabled = YES;
         
         NSString *skills = user[@"users"][0][@"haves"];
 
@@ -118,10 +120,16 @@ static NSString *const KAASkillCellIdentifier = @"SkillCell";
     }
 }
 
-#pragma mark - Connect button
+#pragma mark - Actions
 
 - (IBAction)connectButtonPressed:(id)sender {
     [self signInToXing];
+}
+
+- (IBAction)skipButtonPressed:(id)sender {
+}
+
+- (IBAction)importButtonPressed:(id)sender {
 }
 
 #pragma mark - UITableView 
