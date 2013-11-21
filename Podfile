@@ -4,4 +4,4 @@ pod "TPKeyboardAvoiding"
 pod "MLPAutoCompleteTextField", "~> 1.5"
 pod "CSNotificationView"
 pod "ViewDeck", "2.2.11"
-
+pod "LROAuth2Client"
