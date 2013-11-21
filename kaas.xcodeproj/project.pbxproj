@@ -30,6 +30,7 @@
 		E4455682183E18AC004A7215 /* KAAUser.m in Sources */ = {isa = PBXBuildFile; fileRef = E4455681183E18AC004A7215 /* KAAUser.m */; };
 		E4455685183E229E004A7215 /* KAAXingOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4455684183E229E004A7215 /* KAAXingOAuthViewController.m */; };
 		E480FCA8183E547E0056A118 /* KAASkillCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E480FCA7183E547E0056A118 /* KAASkillCell.m */; };
+		E480FCAB183E6B2B0056A118 /* KAALoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E480FCAA183E6B2B0056A118 /* KAALoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,8 @@
 		E4455684183E229E004A7215 /* KAAXingOAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KAAXingOAuthViewController.m; path = Controllers/KAAXingOAuthViewController.m; sourceTree = "<group>"; };
 		E480FCA6183E547E0056A118 /* KAASkillCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KAASkillCell.h; path = Views/KAASkillCell.h; sourceTree = "<group>"; };
 		E480FCA7183E547E0056A118 /* KAASkillCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KAASkillCell.m; path = Views/KAASkillCell.m; sourceTree = "<group>"; };
+		E480FCA9183E6B2B0056A118 /* KAALoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KAALoginViewController.h; path = Controllers/KAALoginViewController.h; sourceTree = "<group>"; };
+		E480FCAA183E6B2B0056A118 /* KAALoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KAALoginViewController.m; path = Controllers/KAALoginViewController.m; sourceTree = "<group>"; };
 		E566AA2FA8FB4E93B4655255 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -123,6 +126,8 @@
 				E445567E183E15BA004A7215 /* KAARegisterViewController.m */,
 				E4455683183E229E004A7215 /* KAAXingOAuthViewController.h */,
 				E4455684183E229E004A7215 /* KAAXingOAuthViewController.m */,
+				E480FCA9183E6B2B0056A118 /* KAALoginViewController.h */,
+				E480FCAA183E6B2B0056A118 /* KAALoginViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -360,6 +365,7 @@
 				E4455685183E229E004A7215 /* KAAXingOAuthViewController.m in Sources */,
 				07C6A2EF181D013F0099E6F3 /* KAAAskedViewController.m in Sources */,
 				07815C18181C8841004B62BC /* KAAAnswerableViewController.m in Sources */,
+				E480FCAB183E6B2B0056A118 /* KAALoginViewController.m in Sources */,
 				E445567F183E15BA004A7215 /* KAARegisterViewController.m in Sources */,
 				07BF8207181C22BC003F8C2B /* KAAAPIClient.m in Sources */,
 				07815C1B181C8918004B62BC /* KAAAnswerableCell.m in Sources */,

@@ -319,12 +319,67 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="eUu-sI-hJf" kind="relationship" relationship="rootViewController" id="Vsc-gu-We7"/>
+                        <segue destination="pyg-CA-J5B" kind="relationship" relationship="rootViewController" id="hdq-2d-tV4"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2lI-1o-tOf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="391" y="-122"/>
+        </scene>
+        <!--Login View Controller - LOGIN-->
+        <scene sceneID="BBA-hE-zPu">
+            <objects>
+                <viewController id="pyg-CA-J5B" customClass="KAALoginViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Iej-YL-MCx"/>
+                        <viewControllerLayoutGuide type="bottom" id="G6D-GU-kqk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="P5X-es-nfD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cSo-1D-kuW">
+                                <rect key="frame" x="15" y="98" width="290" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eub-r7-p4a">
+                                <rect key="frame" x="15" y="136" width="290" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iQn-Y3-SFK">
+                                <rect key="frame" x="15" y="174" width="290" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Marion-Bold" family="Marion" pointSize="22"/>
+                                <state key="normal" title="Login" backgroundImage="BigButton">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="askNowButtonTapped:" destination="baT-2l-PZT" eventType="touchUpInside" id="NQa-Hg-04q"/>
+                                    <action selector="loginButtonPressed:" destination="pyg-CA-J5B" eventType="touchUpInside" id="ett-y3-ZtG"/>
+                                    <action selector="registerButtonPressed:" destination="eUu-sI-hJf" eventType="touchUpInside" id="rST-ST-8jY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="LOGIN" id="cmr-0r-U18">
+                        <barButtonItem key="rightBarButtonItem" title="Register" id="Buo-W7-kGF">
+                            <connections>
+                                <segue destination="eUu-sI-hJf" kind="push" id="0Za-l7-mrV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="emailTextField" destination="cSo-1D-kuW" id="PaA-jl-dvK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fCn-PO-z5j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="919" y="-122"/>
         </scene>
         <!--XingO Auth View Controller - IMPORT XING SKILLS-->
         <scene sceneID="uZ4-ev-JM7">
@@ -415,7 +470,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="47O-wd-Y6e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1447" y="-122"/>
+            <point key="canvasLocation" x="2191" y="-122"/>
         </scene>
         <!--Register View Controller - REGISTER-->
         <scene sceneID="8Pl-Ds-C8M">
@@ -466,7 +521,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n3b-iN-zAR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="861" y="-122"/>
+            <point key="canvasLocation" x="1605" y="-122"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ERJ-IZ-uwB">
