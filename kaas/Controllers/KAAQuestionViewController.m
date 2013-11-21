@@ -15,7 +15,7 @@
     BOOL _textViewIsShrunk;
 }
 
-@property NSArray *categories;
+@property NSMutableArray *categories;
 
 @end
 
@@ -24,7 +24,8 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
     
-    self.categories = @[@"Network", @"Umami", @"Hackathon", @"Programming", @"Berlin", @"China", @"Lufthansa"];
+    self.categories = [[NSMutableArray alloc] init];
+    [self fetchCategories];
 	
     self.questionTextView.textContainerInset = UIEdgeInsetsMake(15.0f, 15.0f, 15.0f, 15.0f);
     self.questionTextView.delegate = self;
@@ -34,6 +35,15 @@
     self.categoryTextField.autoCompleteTableCellTextColor = [UIColor blackColor];
     self.categoryTextField.autoCompleteTableCornerRadius = 0;
     self.categoryTextField.autoCompleteFontSize = 16;
+}
+
+- (void)fetchCategories {
+    __weak KAAQuestionViewController *_self = self;
+    [[KAAAPIClient sharedClient] getCategoriesWithCompletion:^(BOOL success, NSArray *categories) {
+        if (success) {
+            [_self.categories addObjectsFromArray:categories];
+        }
+    }];
 }
 
 - (IBAction)askNowButtonTapped:(id)sender {

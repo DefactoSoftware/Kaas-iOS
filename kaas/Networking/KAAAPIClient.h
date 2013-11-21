@@ -32,4 +32,6 @@
                               name:(NSString *)name
                         completion:(void (^)(BOOL))completion;
 
+- (void)getCategoriesWithCompletion:(void (^)(BOOL, NSArray*))completion;
+
 @end
