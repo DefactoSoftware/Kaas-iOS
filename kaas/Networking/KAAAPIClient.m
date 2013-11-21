@@ -1,6 +1,7 @@
 #import "KAAAPIClient.h"
 #import "KAAQuestion.h"
 
+
 static NSString *const KAAPIBaseURLString = @"http://kaas.herokuapp.com/api/v1";
 static NSString *const KAAAPIQuestionsEndpoint = @"/questions";
 static NSString *const KAAAPIAnswerablesEndpointFormat = @"/users/%d/answerables";
@@ -8,6 +9,7 @@ static NSString *const KAAAPIUsersEndpoint = @"/users";
 static NSString *const KAAPISessionsEndpoint = @"/sessions";
 static NSString *const KAAPICategoriesEndpoint = @"/user_categories";
 static NSString *const KAAPIAllCategoriesEndpoint = @"/categories";
+static NSString *const KAAPIDevicesEndpoint = @"/devices";
 
 @implementation KAAAPIClient
 
@@ -120,7 +122,7 @@ static NSString *const KAAPIAllCategoriesEndpoint = @"/categories";
     [self POST:endpoint parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *userDictionary = (NSDictionary *) responseObject;
         KAAUser *user = [KAAUser userFromDictionary:userDictionary];
-        
+        self.loggedInUser = user;
         completion(YES, user);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         completion(NO, nil);
@@ -170,12 +172,31 @@ static NSString *const KAAPIAllCategoriesEndpoint = @"/categories";
 
     [self GET:endpoint parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *responseDictionary = (NSDictionary *)responseObject;
-        NSArray *categories = responseObject[@"categories"];
+        NSArray *categories = responseDictionary[@"categories"];
         completion(YES, categories);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         completion(NO, nil);
     }];
+}
 
+- (void)registerDeviceForUserId:(NSInteger)userId
+                     completion:(void (^)(BOOL))completion {
+    NSString *endpoint = [NSString stringWithFormat:@"%@%@", KAAPIBaseURLString, KAAPIDevicesEndpoint];
+    
+    NSString *deviceId = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+    
+    NSDictionary *parameters = @{
+                                    @"device": @{
+                                        @"user_id": @(self.loggedInUser.userId),
+                                        @"token": deviceId
+                                    }
+                                 };
+    
+    [self POST:endpoint parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        completion(YES);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        completion(NO);
+    }];
 }
 
 @end

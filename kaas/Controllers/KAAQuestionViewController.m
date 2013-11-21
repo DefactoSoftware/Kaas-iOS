@@ -9,6 +9,7 @@
 #import "KAAQuestionViewController.h"
 #import "KAAAPIClient.h"
 #import "KAAQuestion.h"
+#import "KAAAppDelegate.h"
 #import <CSNotificationView/CSNotificationView.h>
 
 @interface KAAQuestionViewController () <UITextViewDelegate, MLPAutoCompleteTextFieldDataSource> {
@@ -18,6 +19,8 @@
 @property NSMutableArray *categories;
 
 @end
+
+static NSString *const KAALoginNavigationControllerIdentifier = @"KAALoginNavigationController";
 
 @implementation KAAQuestionViewController
 
@@ -62,6 +65,11 @@
         }
         self.askNowButton.enabled = YES;
     }];
+}
+
+- (IBAction)logoutButtonPressed:(id)sender {
+    KAAAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    appDelegate.window.rootViewController = [self.storyboard instantiateViewControllerWithIdentifier:KAALoginNavigationControllerIdentifier];
 }
 
 - (void)textViewDidBeginEditing:(UITextView *)textView {

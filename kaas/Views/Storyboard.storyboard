@@ -271,10 +271,13 @@
                                                 <rect key="frame" x="164" y="9" width="156" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <state key="normal" title="ANSWERED">
+                                                <state key="normal" title="YOU KNOW THIS">
                                                     <color key="titleColor" red="0.1137254909" green="0.1137254909" blue="0.1137254909" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="uhw-Lm-Ygn" kind="modal" id="vhM-x6-g89"/>
+                                                </connections>
                                             </button>
                                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="AddIcon" translatesAutoresizingMaskIntoConstraints="NO" id="agg-Yn-39k">
                                                 <rect key="frame" x="15" y="123" width="12" height="12"/>
@@ -290,16 +293,15 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="gqk-UF-h90">
-                        <barButtonItem key="rightBarButtonItem" image="NavigationButton" id="jAo-3F-JmQ">
+                        <barButtonItem key="rightBarButtonItem" title="Log out" id="liq-ki-DX7">
                             <connections>
-                                <segue destination="uhw-Lm-Ygn" kind="modal" id="wgp-r6-hZJ"/>
+                                <action selector="logoutButtonPressed:" destination="baT-2l-PZT" id="VrM-of-Bqc"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="askNowButton" destination="gTZ-gh-T35" id="nqm-j3-0Wh"/>
                         <outlet property="categoryTextField" destination="g6K-mT-eFB" id="K8b-eU-VDM"/>
-                        <outlet property="menuBarButton" destination="jAo-3F-JmQ" id="LKU-PD-bHY"/>
                         <outlet property="questionTextView" destination="KwY-Al-Ure" id="0Sp-5R-dXa"/>
                     </connections>
                 </viewController>
@@ -310,7 +312,7 @@
         <!--Navigation Controller-->
         <scene sceneID="1DP-uN-FqY">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7He-ha-bDG" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="KAALoginNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="7He-ha-bDG" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5RT-rW-05l">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -348,7 +350,7 @@
                                 <rect key="frame" x="15" y="136" width="290" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iQn-Y3-SFK">
                                 <rect key="frame" x="15" y="174" width="290" height="65"/>
@@ -497,7 +499,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lbY-id-iUQ">
-                                <rect key="frame" x="15" y="174" width="290" height="65"/>
+                                <rect key="frame" x="15" y="212" width="290" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Marion-Bold" family="Marion" pointSize="22"/>
                                 <state key="normal" title="Register" backgroundImage="BigButton">
@@ -508,6 +510,12 @@
                                     <action selector="registerButtonPressed:" destination="eUu-sI-hJf" eventType="touchUpInside" id="bKH-1r-lfs"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9w1-AJ-kso">
+                                <rect key="frame" x="15" y="174" width="290" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -724,7 +732,6 @@
         <image name="BigButton" width="290" height="65"/>
         <image name="ButtonBar" width="320" height="45"/>
         <image name="DisclosureIndicator" width="8" height="15"/>
-        <image name="NavigationButton" width="24" height="16"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

@@ -25,6 +25,8 @@ static NSString *const KAAAnswerableCellIdentifier = @"KAAAnswerableCellIdentifi
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
+    self.questions = [[NSArray alloc] init];
+    
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.cancelBarButton.target = self;

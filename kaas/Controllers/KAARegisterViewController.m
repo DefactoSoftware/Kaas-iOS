@@ -44,7 +44,14 @@ static NSString *const KAAImportSkillsSegueIdentifier = @"KAASegueIdentifierToIm
                                                style:CSNotificationViewStyleSuccess
                                              message:@"You have successfully been registered"];
             self.loggedInUser = user;
-            [self performSegueWithIdentifier:KAAImportSkillsSegueIdentifier sender:self];
+            [[KAAAPIClient sharedClient] registerDeviceForUserId:self.loggedInUser.userId completion:^(BOOL success) {
+                if (!success) {
+                    [CSNotificationView showInViewController:self
+                                                       style:CSNotificationViewStyleError
+                                                     message:@"Could not register device"];
+                }
+                [self performSegueWithIdentifier:KAAImportSkillsSegueIdentifier sender:self];
+            }];
         } else {
             [CSNotificationView showInViewController:self
                                                style:CSNotificationViewStyleError

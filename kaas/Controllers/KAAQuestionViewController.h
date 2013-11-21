@@ -17,5 +17,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *askNowButton;
 
 - (IBAction)askNowButtonTapped:(id)sender;
+- (IBAction)logoutButtonPressed:(id)sender;
 
 @end

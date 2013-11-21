@@ -34,4 +34,6 @@
 
 - (void)getCategoriesWithCompletion:(void (^)(BOOL, NSArray*))completion;
 
+- (void)registerDeviceForUserId:(NSInteger)userId
+                     completion:(void (^)(BOOL))completion;
 @end
