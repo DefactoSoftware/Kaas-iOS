@@ -27,4 +27,8 @@
 - (void)postSessionsForUser:(KAAUser *)user
                  completion:(void (^)(BOOL, KAAUser *))completion;
 
+- (void)postUserCategoryWithUserId:(NSInteger)userId
+                              name:(NSString *)name
+                        completion:(void (^)(BOOL))completion;
+
 @end

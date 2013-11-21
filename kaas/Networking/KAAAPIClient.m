@@ -6,6 +6,7 @@ static NSString *const KAAAPIQuestionsEndpoint = @"/questions";
 static NSString *const KAAAPIAnswerablesEndpointFormat = @"/users/%d/answerables";
 static NSString *const KAAAPIUsersEndpoint = @"/users";
 static NSString *const KAAPISessionsEndpoint = @"/sessions";
+static NSString *const KAAPICategoriesEndpoint = @"/user_categories";
 
 @implementation KAAAPIClient
 
@@ -141,6 +142,22 @@ static NSString *const KAAPISessionsEndpoint = @"/sessions";
         completion(YES, user);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         completion(NO, nil);
+    }];
+}
+
+- (void)postUserCategoryWithUserId:(NSInteger)userId
+                              name:(NSString *)name
+                        completion:(void (^)(BOOL))completion {
+    NSString *endpoint = [NSString stringWithFormat:@"%@%@", KAAPIBaseURLString, KAAPICategoriesEndpoint];
+    
+    NSDictionary *params = @{ @"user_id": @(userId),
+                              @"name": name
+                            };
+    
+    [self POST:endpoint parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {        
+        completion(YES);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        completion(NO);
     }];
 }
 

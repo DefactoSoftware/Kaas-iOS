@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "KAAUser.h"
 
 @interface KAAXingOAuthViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *connectButton;
 @property (weak, nonatomic) IBOutlet UITableView *skillsTableView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *importButton;
+@property (nonatomic, strong) KAAUser *loggedInUser;
 
 - (IBAction)connectButtonPressed:(id)sender;
 - (IBAction)skipButtonPressed:(id)sender;
