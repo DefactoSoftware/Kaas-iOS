@@ -58,11 +58,9 @@ static NSString *const KAAQuestionsNavigationControllerIdentifier = @"KAANavigat
     NSURLResponse *response;
     NSError *error;
     NSData *userResponseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-    NSDictionary* user = [NSJSONSerialization
-                          JSONObjectWithData:userResponseData
-                          
-                          options:kNilOptions
-                          error:&error];
+    NSDictionary* user = [NSJSONSerialization JSONObjectWithData:userResponseData
+                                                         options:kNilOptions
+                                                           error:&error];
     
     if (error == nil) {
         self.connectButton.hidden = YES;
