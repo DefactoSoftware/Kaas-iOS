@@ -18,6 +18,9 @@ PODS:
   - AFNetworking/UIKit (2.0.3):
     - AFNetworking/NSURLConnection
   - CSNotificationView (0.3.3)
+  - gtm-oauth (0.0.1):
+    - gtm-oauth/nibs
+  - gtm-oauth/nibs (0.0.1)
   - LROAuth2Client (0.0.1)
   - MLPAutoCompleteTextField (1.5)
   - TPKeyboardAvoiding (1.2.1)
@@ -26,6 +29,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking
   - CSNotificationView
+  - gtm-oauth
   - LROAuth2Client
   - MLPAutoCompleteTextField (~> 1.5)
   - TPKeyboardAvoiding
@@ -34,6 +38,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: e499052cbf3d743e9bb727bb37adb9dc2547ba15
   CSNotificationView: f14352657afe7255be9fb2446eb99d5914b97b5d
+  gtm-oauth: b2725c564e3d50c8b6109ac292414a9cceb47dd0
   LROAuth2Client: 25f39c12511984f8abccd0295179c64a1dc94990
   MLPAutoCompleteTextField: 8baf7b9a78cbc6022a50f985c1c56784248821fe
   TPKeyboardAvoiding: 0536c563e6c8b8e95a7c4bf87fca9c0991f5e826
