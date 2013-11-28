@@ -69,7 +69,16 @@ static NSString *const KAAQuestionsNavigationControllerIdentifier = @"KAANavigat
         
         NSString *skills = user[@"users"][0][@"haves"];
 
-        self.skills = [skills componentsSeparatedByString: @", "];
+        NSArray *untrimmedSkils = [skills componentsSeparatedByString: @","];
+        NSMutableArray *trimmedSkills = [[NSMutableArray alloc] initWithCapacity:[untrimmedSkils count]];
+
+        for (NSString *skill in untrimmedSkils) {
+            NSString *trimmedSkill = [skill stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+            [trimmedSkills addObject:trimmedSkill];
+        }
+
+        self.skills = trimmedSkills;
+
         for (NSString *skill in self.skills) {
             [self.skillStates addObject:@NO];
         }
